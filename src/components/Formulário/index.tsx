@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux"
 import { RootState } from "../../Store/store"
-import { adicionarContato } from "../../Store/reducers/contatoSlice"
+import { adicionarContato, removerContato } from "../../Store/reducers/contatoSlice"
 import React, { useState } from "react"
 
 import { CorpoForm } from './style'
@@ -43,6 +43,9 @@ export function Formulario(){
         
     }
 
+    function removerContatoId(contatoId: number) {
+        dispatch(removerContato({id: contatoId}))
+    }
 
     return (
         <CorpoForm>
@@ -68,7 +71,7 @@ export function Formulario(){
                                 <td>{contato.nome}</td>
                                 <td>{contato.email}</td>
                                 <td>{contato.telefone}</td>
-                                <td><button>X</button></td>
+                                <td><button onClick={() => removerContatoId(contato.id)}>X</button></td>
                             </tr>
                         ))}
                     </tbody>

@@ -17,12 +17,17 @@ const contatosSlice = createSlice({
             state.contatos.push(action.payload)
         },
 
-        // removerContato(state, action: PayloadAction<Contato>){
-
-        // }
+        removerContato(state, action: PayloadAction<{id: number}>){
+            const index = state.contatos.findIndex(contato => contato.id === action.payload.id)
+            
+            if (index >= 0) {
+                state.contatos.splice(index, 1)
+            }
+            
+        }
     }
 })
 
-export const { adicionarContato } = contatosSlice.actions
+export const { adicionarContato, removerContato } = contatosSlice.actions
 
 export default contatosSlice.reducer
