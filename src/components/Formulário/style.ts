@@ -61,15 +61,23 @@ export const CorpoForm = styled.div`
             }
         }
 
-        button {
-            background-color: red;
+        #excluir, #editar {
+            margin-right: 4px;
             border: none;
-            width: 30px;
+            width: 40px;
             color: #fff;
             cursor: pointer;
             height: 30px;
-            border-radius: 50%;
+            border-radius: 8px;
             padding 10px
+        }
+
+        #excluir {
+            background-color: red;
+        }
+
+        #editar {
+            background-color: blue;
         }
     }
 `
